@@ -30,3 +30,4 @@ Route::resource('categoria','CategoriaController');
 Route::resource('marca','MarcaController');
 Route::resource('proveedora','ProveedoraController');
 Route::resource('producto','ProductoController');
+Route::resource('ingreso','IngresoController');
