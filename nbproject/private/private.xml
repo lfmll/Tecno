@@ -37,7 +37,6 @@
             <file>file:/opt/lampp/htdocs/verano/resources/views/auth/login.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/database/migrations/2018_02_08_141049_create_ingreso_table.php</file>
             <file>file:/opt/lampp/htdocs/verano/database/migrations/2014_10_12_000000_create_users_table.php</file>
-            <file>file:/opt/lampp/htdocs/verano/config/app.php</file>
             <file>file:/opt/lampp/htdocs/verano/database/migrations/2018_02_08_002605_create_producto_table.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/marca/form.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/database/migrations/2018_02_07_180436_create_marca_table.php</file>

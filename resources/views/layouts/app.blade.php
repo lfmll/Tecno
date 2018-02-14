@@ -106,6 +106,8 @@
     </div>
 
     <!-- Scripts -->
+    <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
+    @stack('scripts')
     <script src="/js/app.js"></script>
 </body>
 </html>

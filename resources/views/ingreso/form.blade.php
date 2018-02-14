@@ -1,4 +1,5 @@
 {!! Form::open(['url'=>$url, 'method'=>$method])!!}
+{{Form::token()}}
 <div class="form-group">
     {{Form::label('title','Fecha de Ingreso')}}   
     {{Form::text('fecha',$ingreso->fecha_ingreso,['class'=>'form-control','placeholder'=>'Fecha de Ingreso'])}}
@@ -31,20 +32,27 @@
         <div class="panel-body">
             <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
                 <div class="form-group">
-                    {{Form::label('title','Productos')}}
-                    {{Form::select('producto_id',$productos,null,['class'=>'form-control','placeholder'=>'producto','required'])}}
+                    <label>Productos</label>
+                    <select name="pproducto" class="form-control selectpicker" id="pproducto">
+                        @foreach($productos as $prod)
+                        <option value="{{$producto->producto_id}}">{{$producto->nombre}}</option>
+                        @endforeach
+                    </select>
+                    <!--{{Form::select('producto_id',$productos,null,['class'=>'form-control','placeholder'=>'producto','required'])}}-->
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-xs-12">
                 <div class="form-group">
-                    {{Form::label('title','Cantidad')}}
-                    {{Form::number('cantidad',null,['class'=>'form-control','placeholder'=>'Cantidad de Producto'])}}
+                    <label>Cantidad</label>
+                    <input type="number" name="pcantidad" id="pcantidad" class="form-control" placeholder="Cantidad">
+                    <!--{{Form::number('cantidad',null,['class'=>'form-control','placeholder'=>'Cantidad de Producto'])}}-->
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-xs-12">
                 <div class="form-group">
-                    {{Form::label('title','Precio de Compra')}}
-                    {{Form::text('precio_compra',null,['class'=>'form-control','placeholder'=>'Precio en bolivianos'])}}
+                    <label>Precio de Compra</label>
+                    <input type="number" name="pprecio_compra" id="pprecio_compra" class="form-control" placeholder="Precio de Compra">
+                    <!--{{Form::text('precio_compra',null,['class'=>'form-control','placeholder'=>'Precio en bolivianos'])}}-->
                 </div>
             </div>
             <div class="col-lg-3 col-sm-3 col-md-2 col-xs-12">
@@ -61,11 +69,15 @@
             <div class="col-lg-12 col-sm-12 col-xs-12">
                 <table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
                     <thead style="background-color: #2ab27b">
+                        <th>Opciones</th>
                         <th>Producto</th>
                         <th>Cantidad</th>
                         <th>Precio Compra</th>
+                        <th>SubTotal</th>
                     </thead>
                     <tfoot>
+                        <th>Total</th>
+                        <th></th>
                         <th></th>                
                         <th></th>
                         <th></th>
@@ -78,4 +90,64 @@
         </div>
     </div>
 </div>
+<div id="guardar" class="col-log-6 col-sm-6 col-md-6 col-xs-12">
+    <div class="form-group">
+        <input name="_token" value="{{ csrf_token() }}" type="hidden"></imput>
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-danger" type="reset">Cancelar</button>
+    </div>
+</div>
 {!! Form::close() !!}
+@push ('scripts')
+<script>
+    $(document).ready(function(){
+        $('#btn_add').click(function(){
+           agregar(); 
+        });
+    });
+    var cont=0;
+    total=0;
+    subtotal=[];
+    $("#guardar").hide();
+    function agregar(){
+        idproducto=$("#pproducto").val();
+        producto=$("#pproducto option:selected").text();
+        cantidad=$("#pcantidad").val();
+        precio_compra=$("pprecio_compra").val();
+        
+        if (idproducto!="" && cantidad!="" && precio_compra!="") {
+            subtotal[cont]=(cantidad*precio_compra);
+            total=total+subtotal[cont];
+            
+            var fila='<tr class="selectd" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idproducto+'">'+producto+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_compra[]" value="'+precio_compra+'"></td><td>'+subtotal[cont]+'</td></tr>';
+            limpiar();
+            $("#total").html("S/. "+total);
+            evaluar();
+            $('#detalles').append(fila);
+        }else{
+            alert("Error al ingresar al detalle de ingreso");
+        }       
+    }
+    
+    function limpiar(){
+        $(#cantidad).val("");
+        $(#precio_compra).val("");
+    }
+    
+    function evaluar(){
+        if (total>0) {
+            $("#guardar").show();
+        }else {
+            $("#guardar").hide();
+        }
+    }
+    
+    function eliminar(index){
+        total=total-subtotal[index];
+        $("#total").html("S/. "+total);
+        $("#fila"+ index).remove();
+        evaluar();
+    }
+    
+</script>
+@endpush
