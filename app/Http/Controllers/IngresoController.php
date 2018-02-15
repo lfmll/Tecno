@@ -7,7 +7,12 @@ use App\DetalleIngreso;
 use App\Producto;
 use App\Proveedora;
 use Carbon;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Response;
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IngresoController extends Controller
 {
@@ -30,9 +35,15 @@ class IngresoController extends Controller
     public function create()
     {
         $proveedoras= Proveedora::orderBy('nombre','ASC')->pluck('nombre','id');
-        $productos= Producto::where('estado','=','habilitado')->orderBy('nombre','ASC')->pluck('nombre','id');
+        $productos= Producto::orderBy('nombre','ASC')->pluck('nombre','id');
         $ingreso=new Ingreso();
-        return view("ingreso.create",["ingreso"=>$ingreso])->with('proveedoras',$proveedoras)->with('productos',$productos);
+        return view("ingreso.create",["ingreso"=>$ingreso])
+                ->with('proveedoras',$proveedoras)
+                ->with('productos',$productos);
+//        $ingreso=new Ingreso();
+//        $proveedoras=DB::table('proveedoras')->get();
+//        $productos=DB::table('productos')->get();
+//        return view("ingreso.create",["proveedoras"=>$proveedoras,"productos"=>$productos]);
     }
 
     /**

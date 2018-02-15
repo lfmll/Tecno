@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/usuario';
 
     /**
      * Create a new controller instance.
@@ -36,4 +36,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+    
+//    public function redirectPath() {
+//        $idusuario=Auth::user()->id;
+//        if($idusuario==1){
+//            return "/ususario";
+//        }else{
+//            return "/home";
+//        }
+//    }
 }

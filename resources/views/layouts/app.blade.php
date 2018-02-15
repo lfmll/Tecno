@@ -60,7 +60,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        <!--{{ config('app.name', 'Tecnologia Web') }}-->
+                        Tecnologias Web GRUPO 3
                     </a>
                 </div>
 
@@ -75,9 +76,10 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li><a href="{{ url('/register') }}">Registro</a></li>
                         @else
                             <li class="dropdown">
+                            <li>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -93,6 +95,10 @@
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
+                                        <!--<a href="{{url('/logout')}}">-->
+                                            <i class="fa fa-btn fa-sign-out"></i>
+                                            Logout
+                                        </a>
                                     </li>
                                 </ul>
                             </li>
@@ -108,6 +114,15 @@
     <!-- Scripts -->
     <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
     @stack('scripts')
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/ripples.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.material.init();
+        });
+    </script>
     <script src="/js/app.js"></script>
 </body>
 </html>

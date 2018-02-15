@@ -7,6 +7,7 @@
             <file>file:/opt/lampp/htdocs/verano/resources/views/producto/create.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/Http/Controllers/ProveedoraController.php</file>
             <file>file:/opt/lampp/htdocs/verano/.env</file>
+            <file>file:/opt/lampp/htdocs/verano/database/migrations/2018_02_14_004838_create_disparador_ingreso_stock.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/proveedora/index.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/Categoria.php</file>
             <file>file:/opt/lampp/htdocs/verano/database/migrations/2018_02_07_173639_create_categoria_table.php</file>

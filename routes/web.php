@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
+Route::get('/','MainController@home');
 Auth::routes();
+
 Route::get('producto/images/{filename}',function($filename){
     $path=public_path("images/$filename");
     if(!\File::exists($path)) abort(404);
@@ -31,3 +33,4 @@ Route::resource('marca','MarcaController');
 Route::resource('proveedora','ProveedoraController');
 Route::resource('producto','ProductoController');
 Route::resource('ingreso','IngresoController');
+Route::resource('usuario','UserController');

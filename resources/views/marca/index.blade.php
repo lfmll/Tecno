@@ -11,6 +11,7 @@
                 <td>Id</td>
                 <td>Nombre</td>
                 <td>Procedencia</td>
+                <td>Opciones</td>
             </tr>
             </thead>
             <tbody>

@@ -1,5 +1,4 @@
 @extends("layouts.app")
-
 @section("content")
     <div class="container white">
         <h1>Nuevo Ingreso</h1>
@@ -8,4 +7,3 @@
     </div>
 
 @endsection
-

@@ -1,8 +1,8 @@
-{!! Form::open(['url'=>$url, 'method'=>$method])!!}
+{!! Form::open(['url' => $url, 'method' => $method]) !!}
 {{Form::token()}}
 <div class="form-group">
     {{Form::label('title','Fecha de Ingreso')}}   
-    {{Form::text('fecha',$ingreso->fecha_ingreso,['class'=>'form-control','placeholder'=>'Fecha de Ingreso'])}}
+    
 </div>
 <div class="row">
 <div class="col-lg-4 col-md-4 col-xs-12">
@@ -25,21 +25,19 @@
         {{Form::label('title','Proveedor')}}
         {{Form::select('proveedora_id',$proveedoras,null,['class'=>'form-control','placeholder'=>'seleccione un Proveedor','required'])}}
     </div>
+</div>        
 </div>
-</div>
+<!--Session de Detalle-->
 <div class="row">
     <div class="panel panel-primary">
         <div class="panel-body">
-            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+            <div class="col-lg-3 col-md-3 col-xs-12">
                 <div class="form-group">
-                    <label>Productos</label>
-                    <select name="pproducto" class="form-control selectpicker" id="pproducto">
-                        @foreach($productos as $prod)
-                        <option value="{{$producto->producto_id}}">{{$producto->nombre}}</option>
-                        @endforeach
-                    </select>
-                    <!--{{Form::select('producto_id',$productos,null,['class'=>'form-control','placeholder'=>'producto','required'])}}-->
+                    {{Form::label('title','Producto')}}
+                    {{Form::select('producto_id',$productos,null,['class'=>'form-control','placeholder'=>'seleccione un Producto','required'])}}
+                    
                 </div>
+            
             </div>
             <div class="col-lg-3 col-md-3 col-xs-12">
                 <div class="form-group">
@@ -61,7 +59,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>            
 </div>
 <div class="row">
     <div class="panel panel-primary">
@@ -93,8 +91,7 @@
 <div id="guardar" class="col-log-6 col-sm-6 col-md-6 col-xs-12">
     <div class="form-group">
         <input name="_token" value="{{ csrf_token() }}" type="hidden"></imput>
-        <button class="btn btn-primary" type="submit">Guardar</button>
-        <button class="btn btn-danger" type="reset">Cancelar</button>
+        <button class="btn btn-primary" type="submit">Guardar</button>        
     </div>
 </div>
 {!! Form::close() !!}
@@ -110,12 +107,12 @@
     subtotal=[];
     $("#guardar").hide();
     function agregar(){
-        idproducto=$("#pproducto").val();
-        producto=$("#pproducto option:selected").text();
+        idproducto=$("#producto_id").val();
+        producto=$("#producto_id option:selected").text();
         cantidad=$("#pcantidad").val();
         precio_compra=$("pprecio_compra").val();
         
-        if (idproducto!="" && cantidad!="" && precio_compra!="") {
+        if (producto_id!="" && cantidad!="" && precio_compra!="") {
             subtotal[cont]=(cantidad*precio_compra);
             total=total+subtotal[cont];
             
@@ -128,7 +125,6 @@
             alert("Error al ingresar al detalle de ingreso");
         }       
     }
-    
     function limpiar(){
         $(#cantidad).val("");
         $(#precio_compra).val("");
