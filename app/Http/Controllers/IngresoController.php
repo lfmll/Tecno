@@ -35,15 +35,12 @@ class IngresoController extends Controller
     public function create()
     {
         $proveedoras= Proveedora::orderBy('nombre','ASC')->pluck('nombre','id');
-        $productos= Producto::orderBy('nombre','ASC')->pluck('nombre','id');
+        $productos= Producto::orderBy('nombre','ASC')->pluck('nombre','id');        
         $ingreso=new Ingreso();
         return view("ingreso.create",["ingreso"=>$ingreso])
                 ->with('proveedoras',$proveedoras)
                 ->with('productos',$productos);
-//        $ingreso=new Ingreso();
-//        $proveedoras=DB::table('proveedoras')->get();
-//        $productos=DB::table('productos')->get();
-//        return view("ingreso.create",["proveedoras"=>$proveedoras,"productos"=>$productos]);
+
     }
 
     /**
@@ -55,7 +52,7 @@ class IngresoController extends Controller
     public function store(Request $request)
     {
         try{
-            BD::beginTransaction();
+            DB::beginTransaction();
             $ingreso=new Ingreso($request->all());
             $ingreso->fecha_ingreso= Carbon::now('America/La_Paz')->toDateTimeString();
             $ingreso->tipo_comprobante=$request->tipo_comprobante;

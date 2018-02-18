@@ -14,4 +14,7 @@ class Producto extends Model
     public function categoria(){
         return $this->belongsTo(Categoria::class);
     }
+    public function detallei(){
+        return $this->hasMany(DetalleIngreso::class);
+    }
 }

@@ -21,11 +21,14 @@
                             <a href="{{url("/categoria")}}">Ver Categorias</a>
                         </td>
                         <td>
-                            <a href="{{url("/proveedor")}}">Seleccion de Color</a>
+                            <a href="{{url("/proveedora")}}">Ver Proveedores</a>
                         </td>
                         <td>
                             <a href="{{url("/producto")}}">Ver Productos</a>
-                        </td>                                        
+                        </td>                           
+                        <td>
+                            <a href="{{url("/ingreso")}}">Ver Ingresos</a>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

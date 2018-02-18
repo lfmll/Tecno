@@ -2,7 +2,8 @@
 {{Form::token()}}
 <div class="form-group">
     {{Form::label('title','Fecha de Ingreso')}}   
-    
+    <!--{{Form::text('fecha',$ingreso->fecha_ingreso,['class'=>'form-control',<?='date(dd-mm-yyyy)'?>])}}-->
+    <input class="form-control" type="date" value="<?='dat(dd-mm-yyyy)'?>">
 </div>
 <div class="row">
 <div class="col-lg-4 col-md-4 col-xs-12">
@@ -23,7 +24,7 @@
 <div class="col-lg-4 col-md-4 col-xs-12">
     <div class="form-group">
         {{Form::label('title','Proveedor')}}
-        {{Form::select('proveedora_id',$proveedoras,null,['class'=>'form-control','placeholder'=>'seleccione un Proveedor','required'])}}
+        {{Form::select('proveedora_id',$proveedoras,null,['class'=>'form-control','placeholder'=>'seleccione un Proveedor','required','id'=>'idproveedor'])}}
     </div>
 </div>        
 </div>
@@ -34,7 +35,7 @@
             <div class="col-lg-3 col-md-3 col-xs-12">
                 <div class="form-group">
                     {{Form::label('title','Producto')}}
-                    {{Form::select('producto_id',$productos,null,['class'=>'form-control','placeholder'=>'seleccione un Producto','required'])}}
+                    {{Form::select('producto_id',$productos,null,['class'=>'form-control','placeholder'=>'seleccione un Producto','required','id'=>'producto_id'])}}
                     
                 </div>
             
@@ -56,6 +57,7 @@
             <div class="col-lg-3 col-sm-3 col-md-2 col-xs-12">
                 <div class="form-group">
                     <button type="button" id="btn_add" class="btn btn-primary">Agregar</button>
+                    <input type="button" id="btn_prueba" class="btn btn-primary" onclick="fncargar();">
                 </div>
             </div>
         </div>
@@ -98,7 +100,8 @@
 @push ('scripts')
 <script>
     $(document).ready(function(){
-        $('#btn_add').click(function(){
+        $('#btn_add').onClick(function(){
+            alert("dfdfd");
            agregar(); 
         });
     });
@@ -124,6 +127,9 @@
         }else{
             alert("Error al ingresar al detalle de ingreso");
         }       
+    }
+    function fncargar(){
+        alert("hola estoy probando");
     }
     function limpiar(){
         $(#cantidad).val("");

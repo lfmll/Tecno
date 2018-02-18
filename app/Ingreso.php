@@ -13,4 +13,7 @@ class Ingreso extends Model
         'num_comprobante',
         "proveedora_id"
     ];
+    public function detallei(){
+        return $this->hasMany(DetalleIngreso::class);
+    }
 }

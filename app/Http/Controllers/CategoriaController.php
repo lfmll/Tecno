@@ -12,6 +12,10 @@ class CategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $categorias=Categoria::all();
@@ -65,7 +69,7 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit($id)
     {
         $categoria=Categoria::find($id);
         return view("categoria.edit",["categoria"=>$categoria]);
@@ -78,7 +82,7 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, $id)
     {
         $categoria=Categoria::find($id);
         $categoria->nombre=$request->nombre;

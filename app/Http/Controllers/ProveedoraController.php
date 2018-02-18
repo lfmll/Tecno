@@ -12,6 +12,10 @@ class ProveedoraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $proveedora= Proveedora::all();
@@ -84,7 +88,7 @@ class ProveedoraController extends Controller
         $proveedora->nombre=$request->nombre;
         $proveedora->telefono=$request->telefono;
         $proveedora->direccion=$request->direccion;
-        if ($proveedor->save()){
+        if ($proveedora->save()){
             return redirect("/proveedora");
         }else{
             return view("proveedora.create",["proveedora"=>$proveedora]);
