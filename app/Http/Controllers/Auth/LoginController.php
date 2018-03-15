@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use App\User;
+use Illuminate\Support\Facades\Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -37,12 +40,14 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
     
-//    public function redirectPath() {
-//        $idusuario=Auth::user()->id;
-//        if($idusuario==1){
-//            return "/ususario";
-//        }else{
-//            return "/home";
-//        }
-//    }
+    public function redirectPath() {
+        $tipo=Auth::user()->tipo;
+        if($tipo=="Administrador"){
+            return "/usuario";
+        }if($tipo=="Usuario"){
+            return "/home";
+        }if($tipo=="Cliente"){
+            return "/cliente";
+        }
+    }
 }

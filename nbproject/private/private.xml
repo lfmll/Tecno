@@ -6,6 +6,7 @@
             <file>file:/opt/lampp/htdocs/verano/resources/views/layouts/app.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/producto/create.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/Http/Controllers/ProveedoraController.php</file>
+            <file>file:/opt/lampp/htdocs/verano/database/migrations/2018_02_21_145448_create_cliente_table.php</file>
             <file>file:/opt/lampp/htdocs/verano/.env</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/main/home.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/producto/producto.blade.php</file>
@@ -22,9 +23,11 @@
             <file>file:/opt/lampp/htdocs/verano/resources/views/categoria/index.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/proveedora/form.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/Http/Middleware/VerifyCsrfToken.php</file>
+            <file>file:/opt/lampp/htdocs/verano/app/Http/Controllers/ClienteController.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/Marca.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/Ingreso.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/Http/Controllers/CategoriaController.php</file>
+            <file>file:/opt/lampp/htdocs/verano/resources/views/auth/register.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/categoria/create.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/categoria/form.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/ingreso/form.blade.php</file>
@@ -41,7 +44,9 @@
             <file>file:/opt/lampp/htdocs/verano/resources/views/auth/login.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/database/migrations/2018_02_08_141049_create_ingreso_table.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/Http/Controllers/MainController.php</file>
+            <file>file:/opt/lampp/htdocs/verano/app/Http/Controllers/Auth/RegisterController.php</file>
             <file>file:/opt/lampp/htdocs/verano/database/migrations/2018_02_08_002605_create_producto_table.php</file>
+            <file>file:/opt/lampp/htdocs/verano/app/Http/Controllers/Auth/LoginController.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/Http/Middleware/RedirectIfAuthenticated.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/usuario/create.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/marca/form.blade.php</file>
@@ -53,8 +58,10 @@
             <file>file:/opt/lampp/htdocs/verano/routes/web.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/marca/create.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/categoria/edit.blade.php</file>
+            <file>file:/opt/lampp/htdocs/verano/app/Http/Controllers/UserController.php</file>
             <file>file:/opt/lampp/htdocs/verano/database/migrations/2018_02_09_024300_create_detalle_ingreso_table.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/Http/Controllers/MarcaController.php</file>
+            <file>file:/opt/lampp/htdocs/verano/resources/views/cliente/index.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/ingreso/index.blade.php</file>
             <file>file:/opt/lampp/htdocs/verano/app/User.php</file>
             <file>file:/opt/lampp/htdocs/verano/resources/views/homeu.blade.php</file>

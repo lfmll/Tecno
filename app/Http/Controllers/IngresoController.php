@@ -6,7 +6,7 @@ use App\Ingreso;
 use App\DetalleIngreso;
 use App\Producto;
 use App\Proveedora;
-use Carbon;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Response;

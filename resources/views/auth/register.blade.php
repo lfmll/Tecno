@@ -62,10 +62,10 @@
                         
                         <!--Tipo de Usuario-->
                         <div class="form-group">
-                            <label for="tipo" class="col-md-4 control-label">Tipo de Usuario</label>
+<!--                            <label for="tipo" class="col-md-4 control-label">Tipo de Usuario</label>-->
                             
                             <div class="col-md-6">
-                                <input id="tipo" type="tipo" class="form-control" name="tipo" required="">
+                                <input id="tipo" type="hidden" class="form-control" name="tipo" required="" placeholder="Cliente" readonly="">
                             </div>
                         </div>
                         

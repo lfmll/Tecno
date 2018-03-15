@@ -34,3 +34,4 @@ Route::resource('proveedora','ProveedoraController');
 Route::resource('producto','ProductoController');
 Route::resource('ingreso','IngresoController');
 Route::resource('usuario','UserController');
+Route::resource('cliente','ClienteController');
